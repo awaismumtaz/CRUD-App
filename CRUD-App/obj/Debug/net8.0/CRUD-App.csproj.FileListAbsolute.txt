@@ -1,0 +1,15 @@
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\bin\Debug\net8.0\CRUD-App.exe
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\bin\Debug\net8.0\CRUD-App.deps.json
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\bin\Debug\net8.0\CRUD-App.runtimeconfig.json
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\bin\Debug\net8.0\CRUD-App.dll
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\bin\Debug\net8.0\CRUD-App.pdb
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\obj\Debug\net8.0\CRUD-App.GeneratedMSBuildEditorConfig.editorconfig
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\obj\Debug\net8.0\CRUD-App.AssemblyInfoInputs.cache
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\obj\Debug\net8.0\CRUD-App.AssemblyInfo.cs
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\obj\Debug\net8.0\CRUD-App.csproj.CoreCompileInputs.cache
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\obj\Debug\net8.0\CRUD-App.sourcelink.json
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\obj\Debug\net8.0\CRUD-App.dll
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\obj\Debug\net8.0\refint\CRUD-App.dll
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\obj\Debug\net8.0\CRUD-App.pdb
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\obj\Debug\net8.0\CRUD-App.genruntimeconfig.cache
+\\wsl.localhost\Ubuntu\home\awais\repos\CRUD-App\CRUD-App\obj\Debug\net8.0\ref\CRUD-App.dll
