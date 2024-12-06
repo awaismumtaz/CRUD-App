@@ -1,15 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using CRUD_App;
-
-static
-
 internal class Program
 {
+    static string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ConcertsData", "concerts.txt");
     static List<Concert> concerts = new List<Concert>();
+    
     public static void Main(string[] args)
     {
-        
+        LoadConcerts();
+        Console.WriteLine($"File path: {filePath}");
         var running = true;
         while (running)
         {
@@ -58,7 +58,6 @@ internal class Program
                 {
                     Console.WriteLine("Invalid input. Try again. Enter positive number");
                 }
-        
                 Console.Write("Enter Date: ");
                 DateTime specificTime;
                 while (!DateTime.TryParse(Console.ReadLine(), out specificTime))
@@ -125,18 +124,79 @@ internal class Program
                 Console.WriteLine("Concert updated successfully!");
             }
 
+            // Delete a concert
             static void DeleteConcert()
             {
-                Console.WriteLine("\nDelete a Concert");
+                Console.Write("Enter the ID of the concert to delete: ");
+                int id;
+                while (!int.TryParse(Console.ReadLine(), out id) || !concerts.Any(c => c.Id == id))
+                {
+                    Console.Write("Concert not found. Enter a valid ID: ");
+                }
+
+                concerts.RemoveAll(c => c.Id == id);
+                Console.WriteLine("Concert deleted successfully!");
             }
 
+            // Save concerts to file
             static void SaveConcerts()
             {
-                Console.WriteLine("\nSave all Concerts");
+                try
+                {
+                    string directory = Path.GetDirectoryName(filePath);
+                    if (!Directory.Exists(directory))
+                    {
+                        Directory.CreateDirectory(directory);
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        foreach (var concert in concerts)
+                        {
+                            writer.WriteLine($"{concert.Id}|{concert.Venue}|{concert.Performer}|{concert.Capacity}|{concert.SpecificTime:yyyy-MM-dd hh:mm tt}");
+                        }
+                    }
+                    Console.WriteLine("Concerts saved to file.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error saving concerts: {ex.Message}");
+                }
             }
-    
         }
+        // Load concerts from file
+        static void LoadConcerts()
+        {
+            try
+            {
+                if (!File.Exists(filePath)) return; // No file to load
+
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        var parts = line.Split('|');
+                        concerts.Add(new Concert(
+                            int.Parse(parts[0]),
+                            parts[1],
+                            parts[2],
+                            int.Parse(parts[3]),
+                            DateTime.Parse(parts[4])
+                        ));
+                    }
+                }
+
+                Console.WriteLine("Concerts loaded from file.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading concerts: {ex.Message}");
+            }
+        }
+
     }
-}
+        
+    }
 
 
