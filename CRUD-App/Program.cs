@@ -88,9 +88,41 @@ internal class Program
                 }
             }
 
+            // Update a concert
             static void UpdateConcert()
             {
-                Console.WriteLine("\nUpdate a Concert");
+                Console.Write("Enter the ID of the concert to update: ");
+                int id;
+                while (!int.TryParse(Console.ReadLine(), out id) || !concerts.Any(c => c.Id == id))
+                {
+                    Console.Write("Concert not found. Enter a valid ID: ");
+                }
+
+                Concert concert = concerts.First(c => c.Id == id);
+
+                Console.Write($"Enter new Venue (current: {concert.Venue}): ");
+                string newVenue = Console.ReadLine();
+                concert.Venue = string.IsNullOrEmpty(newVenue) ? concert.Venue : newVenue;
+
+                Console.Write($"Enter new Performer (current: {concert.Performer}): ");
+                string newPerformer = Console.ReadLine();
+                concert.Performer = string.IsNullOrEmpty(newPerformer) ? concert.Performer : newPerformer;
+
+                Console.Write($"Enter new Capacity (current: {concert.Capacity}): ");
+                int newCapacity;
+                if (int.TryParse(Console.ReadLine(), out newCapacity) && newCapacity > 0)
+                {
+                    concert.Capacity = newCapacity;
+                }
+
+                Console.Write($"Enter new Specific Time (current: {concert.SpecificTime:yyyy-MM-dd hh:mm tt}): ");
+                DateTime newSpecificTime;
+                if (DateTime.TryParse(Console.ReadLine(), out newSpecificTime))
+                {
+                    concert.SpecificTime = newSpecificTime;
+                }
+
+                Console.WriteLine("Concert updated successfully!");
             }
 
             static void DeleteConcert()
