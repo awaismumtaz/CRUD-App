@@ -16,6 +16,10 @@ public class Concert
         Capacity = capacity;
         SpecificTime = specifictime;
     }
-    
+    public override string ToString()
+    {
+        return $"ID: {Id}, Venue: {Venue}, Performer: {Performer}, Capacity: {Capacity}, Time: {SpecificTime:yyyy-MM-dd hh:mm tt}";
+    }
+
    
 }

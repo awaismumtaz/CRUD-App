@@ -71,9 +71,21 @@ internal class Program
                 Console.WriteLine("Concert added successfully!");
             }
 
+            
+            // List all concerts
             static void ListConcerts()
             {
-                Console.WriteLine("\nListing all Concerts");
+                if (concerts.Count == 0)
+                {
+                    Console.WriteLine("No concerts available.");
+                    return;
+                }
+
+                Console.WriteLine("\nList of Concerts:");
+                foreach (var concert in concerts)
+                {
+                    Console.WriteLine(concert);
+                }
             }
 
             static void UpdateConcert()
